@@ -1,0 +1,92 @@
+.main-section {
+  @include outer-container;
+  @include clearfix;
+  @include row(table);
+
+  .video {
+    @include span-columns(12);
+    @include omega(2n);
+    position: relative;
+    width: 560px;
+
+    iframe {border:8px solid $base-accent-color;
+        border-radius: 8px !important;
+    }
+
+    .title-stats {
+      padding: 2px;
+      margin-bottom: 2px;
+      font-size: 1.5em;
+      font-family: 'Dosis', sans-serif;
+      line-height:100%;
+
+      .video-title {
+        font-size: 1.2em;
+        font-weight: 100;
+      }
+
+      .video-upvotes {
+        font-size: .8em;
+        color: orange;
+        font-weight: 800;
+      }
+
+      .video-downvotes {
+        font-size: .8em;
+        color: lightblue;
+        font-weight: 800;
+      }
+
+      .video-score {
+        font-size: .8em;
+        color: red;
+        font-weight: 900;
+      }
+
+      .video-tag {
+        color: black;
+      }
+      .video-tags {
+        padding-top: 5px;
+        font-size: .7em;
+        a {
+          background-color: rgba(black, .7);
+          padding: 3px;
+          border-radius: 3px;
+        }
+        a:link, a:visited {
+          color: #babf9c;
+        }
+      }
+    }
+  }
+
+  .voting {
+    position: relative;
+    top: 85px;
+
+    .voting-button {
+      padding-right: 45px;
+      margin-left: 45px;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .description {
+      @include border-top-radius(8px);
+      @include border-bottom-radius(8px);
+      @include border-left-radius(8px);
+      @include border-right-radius(8px);
+      margin-left: 10px;
+      background-color: rgba(black, .05);
+      padding: 5px;
+      top-padding: 10px;
+      font-size: 1.5em;
+      font-family: 'Roboto', sans-serif;
+      line-height: 110%;
+      height: 315px;
+      overflow-y: scroll;
+    }
+  }
+}
+

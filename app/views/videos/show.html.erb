@@ -1,0 +1,51 @@
+<section class="main-section">
+  <div class="video">
+    <div class="title-stats">
+      <p class="video-title"><%= @video.name %></p>
+      <span class="video-score"><%= @video.score %> Total points</span>
+      <span class="video-upvotes"><%= @video.up_votes %> Upvotes</span>
+      <span class="video-downvotes"><%= @video.down_votes %> Downvotes</span>
+      <p class="video-tags">
+        <span class="video-tag">Tags: </span>
+        <a href="#">eggs</a>
+        <a href="#">food</a>
+        <a href="#">century egg</a>
+        <a href="#">Japan</a>
+      </p>
+    </div>
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/grxLCQqfqok?rel=0;3&amp;autohide=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="voting">
+    <%= link_to image_tag('chevron-up.png'), '#', title: 'UPVOTE THIS', class: 'voting-button' %>
+    <%= link_to image_tag('chevron-down.png'), '#', title: 'DOWNVOTE THIS', class: 'voting-button' %>
+    <%= link_to image_tag('random.png'), root_path, title: 'SHOW A RANDOM VIDEO', class: 'voting-button' %>
+    <div class="description">
+      <p><%= @video.description %></p>
+    </div>
+  </div>
+</section>
+
+<section id="comments">
+  <div class="comment">
+    <div class="comment-image">
+      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
+    </div>
+    <div class="comment-content">
+      <h1>First Comment Title or Author</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+      <p class="comment-detail">Date or details about this post</h2>
+    </div>
+  </div>
+
+  <div class="comment">
+    <div class="comment-image">
+      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_2.png" alt="">
+    </div>
+    <div class="comment-content">
+      <h1>Another One</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+      <p class="comment-detail">Date or details about this post</h2>
+    </div>
+  </div>
+</section>

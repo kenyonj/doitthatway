@@ -9,5 +9,24 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+@import url(http://fonts.googleapis.com/css?family=Dosis:400,700);
+
+// $visual-grid: true;
+
+@import 'bourbon';
+@import 'bitters/bitters';
+@import 'neat';
+@import 'header';
+@import 'categories_bar';
+@import 'main_section';
+@import 'comments_section';
+@import 'footer';
+
+* {margin:0;padding:0;}
+
+html, body {
+  @include clearfix;
+  font-family: 'Roboto', sans-serif;
+}

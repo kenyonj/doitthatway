@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Doitthatway</title>
+  <title>doitthatway.com</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="navigation">
 
-<%= yield %>
+    <div class="menu-wrapper">
+      <a href="javascript:void(0)" class="logo">
+        <%= image_tag('cocktail.png') %>
+        doitthatway.com
+      </a>
+
+      <div class="search-bar">
+        <div class="search-and-submit">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <%= image_tag('search-icon-black.png') %>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav">
+        <span id="navigation-menu">
+          <%= link_to 'Submit Video', '#' %>
+          <%= link_to 'Profile', '#' %>
+          <%= link_to 'Sign in', '#' %>
+          <%= link_to 'Sign up', '#' %>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <section class="categories-bar">
+    <div class="button-group">
+      <ul>
+        <li>TRENDING TOPICS:</li>
+        <li><%= link_to 'Food', '#' %></li>
+        <li><%= link_to 'Life', '#' %></li>
+        <li><%= link_to 'Work', '#' %></li>
+      </ul>
+    </div>
+  </section>
+
+  <%= yield %>
+
+  <section id="footer">
+  </section>
 
 </body>
 </html>

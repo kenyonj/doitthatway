@@ -1,0 +1,14 @@
+#footer {
+  @include row(table);
+  @include span-columns(12);
+  background-color: white;
+  padding: 8px;
+  color: $base-accent-color;
+  font-weight: 100;
+  font-size: 2em;
+  float: left;
+  margin-left:auto;
+  margin-right:auto;
+  width: 100%;
+  display: none;
+}
