@@ -10,7 +10,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bourbon'
 gem 'neat'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
 
 group :doc do
   gem 'sdoc', require: false
+end
+
+group :development, :test do
+  gem 'dotenv-rails'
 end

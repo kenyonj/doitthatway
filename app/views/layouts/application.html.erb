@@ -26,10 +26,13 @@
 
       <div class="nav">
         <span id="navigation-menu">
-          <%= link_to 'Submit Video', '#' %>
-          <%= link_to 'Profile', '#' %>
-          <%= link_to 'Sign in', '#' %>
-          <%= link_to 'Sign up', '#' %>
+          <% if current_user %>
+            <%= link_to 'Submit Video', '#' %>
+            <%= link_to 'Profile', '#' %>
+            <%= link_to 'Sign out', signout_path, id: 'sign_out' %>
+          <% else %>
+            <%= link_to 'Sign in with Facebook', '/auth/facebook', id: 'sign_in' %>
+          <% end %>
         </span>
       </div>
     </div>
@@ -37,6 +40,18 @@
 
   <section class="categories-bar">
     <div class="button-group">
+      <% if signed_in_user.is_admin? %>
+        <ul>
+          <li>ADMIN:</li>
+          <li><%= link_to 'Users', '#' %></li>
+        </ul>
+      <% end %>
+      <% if signed_in_user.is_moderator? %>
+        <ul>
+          <li>MODERATOR:</li>
+          <li><%= link_to 'Pending Submissions', '#' %></li>
+        </ul>
+      <% end %>
       <ul>
         <li>TRENDING TOPICS:</li>
         <li><%= link_to 'Food', '#' %></li>
