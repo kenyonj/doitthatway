@@ -11,16 +11,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def is_admin?
-    admin
-  end
-
-  def is_moderator?
-    moderator
-  end
-
-  def remove
-    destroy
+  def can_edit?
+    admin? || moderator?
   end
 
   def update_access(access_change)

@@ -40,18 +40,18 @@
 
   <section class="categories-bar">
     <div class="button-group">
-      <% if signed_in_user.is_admin? %>
+      <% if signed_in_user.admin? %>
         <ul>
           <li>ADMIN:</li>
           <li><%= link_to 'Users', users_path %></li>
         </ul>
       <% end %>
-      <% if signed_in_user.is_moderator? %>
+      <% if signed_in_user.moderator? %>
         <ul>
           <li>MODERATOR:</li>
           <li>
-            <span class=<%= pending_submissions_class %>>
-              <%= link_to 'Pending Submissions', '#' %>
+            <span id='unpublished-submission-button' class='<%= unpublished_submissions_class %>'>
+              <%= link_to 'Unpublished Submissions', unpublished_submissions_path %>
             </span>
           </li>
         </ul>

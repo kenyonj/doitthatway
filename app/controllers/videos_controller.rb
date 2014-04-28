@@ -15,6 +15,6 @@ class VideosController < ApplicationController
   end
 
   def random_video
-    Video.published.sample
+    Video.published.sample || NullVideo.new
   end
 end

@@ -1,0 +1,6 @@
+$('#approve-<%= dom_id(@video) %>').slideUp("normal", function() {
+  $(this).remove();
+});
+<% unless unpublished_submissions? %>
+  $('#unpublished-submission-button').attr('class', '');
+<% end %>

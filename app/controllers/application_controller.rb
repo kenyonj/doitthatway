@@ -3,6 +3,18 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def authorize_moderator
+    if !current_user.moderator?
+      render nothing: true, status: :unauthorized
+    end
+  end
+
+  def authorize_admin
+    if !current_user.admin?
+      render nothing: true, status: :unauthorized
+    end
+  end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end

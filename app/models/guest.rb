@@ -1,9 +1,9 @@
 class Guest
-  def is_admin?
+  def admin?
     false
   end
 
-  def is_moderator?
+  def moderator?
     false
   end
 end

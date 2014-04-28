@@ -5,6 +5,13 @@
       <span class="video-score"><%= @video.score %> Total points</span>
       <span class="video-upvotes"><%= @video.up_votes %> Upvotes</span>
       <span class="video-downvotes"><%= @video.down_votes %> Downvotes</span>
+
+      <% if current_user.can_edit? %>
+        <% if @video.published? %>
+          <%= link_to "Unpublish Video", submission_path(@video), method: :patch %>
+        <% end %>
+      <% end %>
+
       <p class="video-tags">
         <span class="video-tag">Tags: </span>
         <a href="#">eggs</a>

@@ -1,6 +1,5 @@
 class AccessesController < ApplicationController
-  before_action :return_unauthorized_error,
-    unless: :check_if_admin, only: [:update]
+  before_action :authorize_admin
 
   def update
     user = find_user
@@ -16,13 +15,5 @@ class AccessesController < ApplicationController
 
   def find_access_change
     params.require(:access).permit(:type, :value)
-  end
-
-  def check_if_admin
-    current_user.is_admin?
-  end
-
-  def return_unauthorized_error
-    render nothing: true, status: 401
   end
 end

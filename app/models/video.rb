@@ -5,8 +5,20 @@ class Video < ActiveRecord::Base
     where(published: true)
   end
 
-  def self.pending_submissions?
+  def self.unpublished
+    where(published: false)
+  end
+
+  def self.unpublished_submissions?
     exists?(published: false)
+  end
+
+  def publish
+    update(published: true)
+  end
+
+  def unpublish
+    update(published: false)
   end
 
   def up_votes
