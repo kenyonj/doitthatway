@@ -13,7 +13,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300);
 @import url(http://fonts.googleapis.com/css?family=Dosis:400,700);
 
-$visual-grid: true;
+// $visual-grid: true;
 
 @import 'bourbon';
 @import 'bitters/bitters';
@@ -30,4 +30,23 @@ $visual-grid: true;
 html, body {
   @include clearfix;
   font-family: 'Roboto', sans-serif;
+}
+
+@-webkit-keyframes pulse_animation {
+    0% { color: rgba(red, 1); }
+    30% { color: rgba(red, 0.8); }
+    40% { color: rgba(red, 0.6); }
+    50% { color: rgba(red, 0.5); }
+    60% { color: rgba(red, 0.6); }
+    70% { color: rgba(red, 0.7); }
+    80% { color: rgba(red, 0.8); }
+    100% { color: rgba(red, 0.9); }
+}
+
+.pulse a {
+  -webkit-animation-name: 'pulse_animation';
+  -webkit-animation-duration: 1500ms;
+  -webkit-transform-origin: 70% 70%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
 }
