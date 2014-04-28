@@ -1,0 +1,84 @@
+<li class='block' id='listing-<%= dom_id(user) %>'>
+  <div class='user-name'>
+    <%= user.name %>
+  </div>
+  <% if current_user.is_admin? %>
+    <div class='is-admin'>
+      <%= check_box_tag :is_admin?, user.id, current_user.is_admin?, id: "adm_#{dom_id(user)}" %>
+      Admin
+    </div>
+    <div class='is-moderator'>
+      <%= check_box_tag :is_moderator?, user.id, current_user.is_moderator?, id: "mod_#{dom_id(user)}" %>
+      Moderator
+    </div>
+    <div class='delete-user'>
+      <%= button_to "Delete user", user,
+        remote: true,
+        method: :delete,
+        confirm: "Are you sure you want to delete user #{user.name}?",
+        id: "del-button#{dom_id(user)}" %>
+    </div>
+  <% end %>
+  <script>
+    $('document').ready(function() {
+      $('#adm_<%= dom_id(user) %>').change(function() {
+        if ($(this).prop("checked")) {
+          $.ajax({
+              type: "PATCH",
+              url: "<%= user_access_path(user) %>",
+              data: {"access": {"type": "admin", "value": "true"}},
+              success : function(data) {
+                remote = data;
+              },
+              error: function() {
+                alert('You no longer have admin access and will be redirected to the home page.');
+                document.location.href='/';
+              }
+          });
+        } else {
+          $.ajax({
+              type: "PATCH",
+              url: "<%= user_access_path(user) %>",
+              data: {"access": {"type": "admin", "value": "false"}},
+              success : function(data) {
+                  remote = data;
+              },
+              error: function() {
+                alert('You no longer have admin access and will be redirected to the home page.');
+                document.location.href='/';
+              }
+          });
+        }
+      });
+      $('#mod_<%= dom_id(user) %>').change(function() {
+        if ($(this).prop("checked")) {
+          $.ajax({
+              type: "PATCH",
+              url: "<%= user_access_path(user) %>",
+              data: {"access": {"type": "moderator", "value": "true"}},
+              success : function(data) {
+                remote = data;
+              },
+              error: function() {
+                alert('You no longer have admin access and will be redirected to the home page.');
+                document.location.href='/';
+              }
+          });
+        } else {
+          $.ajax({
+              type: "PATCH",
+              url: "<%= user_access_path(user) %>",
+              data: {"access": {"type": "moderator", "value": "false"}},
+              success : function(data) {
+                remote = data;
+              },
+              error: function() {
+                alert('You no longer have admin access and will be redirected to the home page.');
+                document.location.href='/';
+              }
+          });
+        }
+      });
+    });
+  </script>
+</li>

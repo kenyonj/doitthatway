@@ -1,0 +1,21 @@
+#user-list {
+  @include outer-container;
+  @include clearfix;
+  padding-top: 20px;
+
+  li.block {
+    @include span-columns(2);
+    @include omega(6n);
+    padding: 5px;
+    margin: 3px;
+    width: 175px;
+    color: white;
+    background: rgba(black, .4);
+    border-radius: 5px;
+    float: left;
+
+    .user-name {
+      font-weight: 800;
+    }
+  }
+}

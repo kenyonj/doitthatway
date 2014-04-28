@@ -13,7 +13,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300);
 @import url(http://fonts.googleapis.com/css?family=Dosis:400,700);
 
-// $visual-grid: true;
+$visual-grid: true;
 
 @import 'bourbon';
 @import 'bitters/bitters';
@@ -21,6 +21,7 @@
 @import 'header';
 @import 'categories_bar';
 @import 'main_section';
+@import 'user';
 @import 'comments_section';
 @import 'footer';
 
