@@ -1,7 +1,7 @@
 Doitthatway::Application.routes.draw do
   root 'videos#index'
 
-  resources :videos, only: [:show]
+  resources :videos, only: [:show, :create]
 
   resources :users, only: [:index, :destroy] do
     resource :access, only: [:update]

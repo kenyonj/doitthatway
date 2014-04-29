@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :videos
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -13,6 +15,10 @@ class User < ActiveRecord::Base
 
   def can_edit?
     admin? || moderator?
+  end
+
+  def logged_in?
+    true
   end
 
   def update_access(access_change)

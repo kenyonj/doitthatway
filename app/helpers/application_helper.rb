@@ -8,4 +8,8 @@ module ApplicationHelper
   def unpublished_submissions?
     Video.unpublished_submissions?
   end
+
+  def new_video
+    Video.new
+  end
 end

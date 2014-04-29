@@ -15,13 +15,13 @@ header.navigation {
   font-family: $sans-serif;
   height: $navigation-height;
   width: 100%;
-  z-index: 999;
+  z-index: 9;
   border-bottom: 1px solid #e1e3ea;
 
   .menu-wrapper {
     @include outer-container;
     position: relative;
-    z-index: 9999;
+    z-index: 8;
   }
 
   .logo {

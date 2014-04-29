@@ -1,0 +1,14 @@
+$base-accent-color: #4FC1E9;
+
+#submit-video-modal {
+  background-color: rgba($base-accent-color, .6);
+  #submit-video-header {
+    font-size: 2em;
+  }
+}
+.modal-content {
+  #submit-video-button {
+    @include button(rgba($base-accent-color, .6));
+    color: white;
+  }
+}

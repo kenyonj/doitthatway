@@ -26,8 +26,8 @@
 
       <div class="nav">
         <span id="navigation-menu">
-          <% if current_user %>
-            <%= link_to 'Submit Video', '#' %>
+          <% if current_user.logged_in? %>
+            <%= link_to 'Submit Video', '#modal-show' %>
             <%= link_to image_tag(current_user.image, height: '30px'), '#' %>
             <%= link_to 'Sign out', signout_path, id: 'sign_out' %>
           <% else %>
@@ -40,13 +40,13 @@
 
   <section class="categories-bar">
     <div class="button-group">
-      <% if signed_in_user.admin? %>
+      <% if current_user.admin? %>
         <ul>
           <li>ADMIN:</li>
           <li><%= link_to 'Users', users_path %></li>
         </ul>
       <% end %>
-      <% if signed_in_user.moderator? %>
+      <% if current_user.moderator? %>
         <ul>
           <li>MODERATOR:</li>
           <li>
@@ -64,6 +64,8 @@
       </ul>
     </div>
   </section>
+
+  <%= render 'videos/submit_video' %>
 
   <%= yield %>
 

@@ -1,0 +1,19 @@
+<section class="semantic-content" id="modal-show" tabindex="-1"
+        role="dialog" aria-labelledby="submit-video-modal" aria-hidden="true">
+
+  <div class="modal-inner">
+    <header id="submit-video-modal"><span id='submit-video-header'>Submit Video</span></header>
+    <div class="modal-content">
+      <%= form_for new_video do |form| %>
+        <%= form.text_field :name, placeholder: 'Video Name' %>
+        <%= form.text_field :youtube_url, placeholder: 'Youtube URL' %>
+        <%= form.text_area :description, placeholder: 'Video Description', size: '30x10' %>
+        <%= form.submit 'Submit for approval', id: 'submit-video-button' %>
+      <% end %>
+    </div>
+    <footer></footer>
+  </div>
+
+  <a href="#!" class="modal-close" title="Close this modal" data-close="Close"
+        data-dismiss="modal">×</a>
+</section>
