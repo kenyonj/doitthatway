@@ -13,6 +13,10 @@ class Video < ActiveRecord::Base
     exists?(published: false)
   end
 
+  def youtube_id
+    youtube_url.split('=')[1]
+  end
+
   def publish
     update(published: true)
   end
