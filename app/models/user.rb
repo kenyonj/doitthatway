@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   has_many :videos
 
+  has_many :votes
+  delegate :upvotes, to: :votes
+  delegate :downvotes, to: :votes
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -11,6 +15,14 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
+  end
+
+  def upvoted_this?(video)
+    upvotes.exists?(video: video)
+  end
+
+  def downvoted_this?(video)
+    downvotes.exists?(video: video)
   end
 
   def can_edit?

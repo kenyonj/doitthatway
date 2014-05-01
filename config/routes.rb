@@ -1,7 +1,9 @@
 Doitthatway::Application.routes.draw do
   root 'videos#index'
 
-  resources :videos, only: [:show, :create]
+  resources :videos, only: [:show, :create] do
+    post 'vote' => 'votes#create'
+  end
 
   resources :users, only: [:index, :destroy] do
     resource :access, only: [:update]

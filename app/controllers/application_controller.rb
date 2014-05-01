@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def process_vote(type, target)
+    VoteProcessor.new(current_user, type, target).process
+  end
+
   def authorize_moderator
     if !current_user.moderator?
       render nothing: true, status: :unauthorized
@@ -12,6 +16,12 @@ class ApplicationController < ActionController::Base
   def authorize_admin
     if !current_user.admin?
       render nothing: true, status: :unauthorized
+    end
+  end
+
+  def authorize_user
+    if current_user.is_a?(Guest)
+      redirect_to :back
     end
   end
 

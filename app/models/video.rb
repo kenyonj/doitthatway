@@ -1,6 +1,10 @@
 class Video < ActiveRecord::Base
   belongs_to :user
 
+  has_many :votes
+  has_many :upvotes, class_name: 'Upvote'
+  has_many :downvotes, class_name: 'Downvote'
+
   def self.published
     where(published: true)
   end
@@ -26,11 +30,11 @@ class Video < ActiveRecord::Base
   end
 
   def up_votes
-    20
+    upvotes_count
   end
 
   def down_votes
-    3
+    downvotes_count
   end
 
   def score

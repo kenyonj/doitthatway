@@ -14,4 +14,12 @@ class Guest
   def logged_in?
     false
   end
+
+  def upvoted_this?(video)
+    false
+  end
+
+  def downvoted_this?(video)
+    false
+  end
 end

@@ -72,12 +72,32 @@
     top: 85px;
 
     .voting-button {
-      padding-right: 45px;
-      margin-left: 45px;
+      border-radius: 10px;
+      padding-top: 53px;
       &:hover {
         opacity: 0.8;
+
+        &.upvote {
+          background-color: orange;
+        }
+
+        &.downvote {
+          background-color: lightblue;
+        }
       }
     }
+
+    .voted {
+
+      &.upvote {
+        background-color: orange;
+      }
+
+      &.downvote {
+        background-color: lightblue;
+      }
+    }
+
     .description {
       @include border-top-radius(8px);
       @include border-bottom-radius(8px);

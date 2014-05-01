@@ -21,4 +21,20 @@ module ApplicationHelper
                  "</iframe>"
     embed_code.html_safe
   end
+
+  def class_for_upvote(video)
+    if current_user.upvoted_this?(video)
+      'voting-button upvote voted'
+    else
+      'voting-button upvote'
+    end
+  end
+
+  def class_for_downvote(video)
+    if current_user.downvoted_this?(video)
+      'voting-button downvote voted'
+    else
+      'voting-button downvote'
+    end
+  end
 end
