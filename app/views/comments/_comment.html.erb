@@ -1,0 +1,21 @@
+<%= div_for(comment) do %>
+  <div class='comment-image'>
+    <%= image_tag comment.user.image %>
+  </div>
+  <div class='comment-content'>
+    <h1><%= comment.user.name %></h1>
+    <p><%= comment.body %></p>
+    <p class='comment-detail'>
+      <%= time_ago_in_words(comment.created_at) %> ago
+    </p>
+    <% if current_user.owns?(comment) %>
+      <p class='comment-detail'>
+        <%= link_to 'DELETE',
+          comment,
+          method: :delete,
+          remote: true
+        %>
+      </p>
+    <% end %>
+  </div>
+<% end %>

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :videos
 
+  has_many :comments
+
   has_many :votes
   delegate :upvotes, to: :votes
   delegate :downvotes, to: :votes
@@ -31,6 +33,10 @@ class User < ActiveRecord::Base
 
   def logged_in?
     true
+  end
+
+  def owns?(comment)
+    comments.include?(comment)
   end
 
   def update_access(access_change)

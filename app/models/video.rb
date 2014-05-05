@@ -1,6 +1,8 @@
 class Video < ActiveRecord::Base
   belongs_to :user
 
+  has_many :comments
+
   has_many :votes
   has_many :upvotes, class_name: 'Upvote'
   has_many :downvotes, class_name: 'Downvote'

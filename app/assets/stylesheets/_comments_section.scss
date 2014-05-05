@@ -1,9 +1,12 @@
 #comments {
   @include outer-container;
   padding: 50px;
+
+  #comment-form {
+    padding-bottom: 15px;
+  }
   .comment {
     $comment-gutter: 1.4em;
-    $comment-image-padding: .7em;
     $comment-image-width: 4em;
     $comment-color: $base-font-color;
     $comment-background: lighten($base-accent-color, 15);
@@ -28,8 +31,7 @@
       > img {
         width: $comment-image-width;
         height: auto;
-        border-radius: $base-border-radius;
-        padding: $comment-image-padding;
+        border-radius: 30px;
         background: $comment-background;
         display: block;
         max-width: none;

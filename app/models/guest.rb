@@ -7,6 +7,10 @@ class Guest
     false
   end
 
+  def owns?(comment)
+    false
+  end
+
   def can_edit?
     false
   end
