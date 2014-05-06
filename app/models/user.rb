@@ -35,8 +35,12 @@ class User < ActiveRecord::Base
     true
   end
 
-  def owns?(comment)
-    comments.include?(comment)
+  def can_tag?(video)
+    owns?(video) || admin?
+  end
+
+  def owns?(object)
+    object.user_id == id
   end
 
   def update_access(access_change)

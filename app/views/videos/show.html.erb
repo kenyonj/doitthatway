@@ -1,34 +1,59 @@
-<section class="main-section">
-  <div class="video">
-    <div class="title-stats">
-      <p class="video-title"><%= @video.name %></p>
-      <span class="video-score"><%= @video.score %> Total points</span>
-      <span class="video-upvotes"><%= @video.up_votes %> Upvotes</span>
-      <span class="video-downvotes"><%= @video.down_votes %> Downvotes</span>
+<script>
+  $(document).ready(function() {
+    $('#edit-tags-button').click(function() {
+      $('#tags-container').fadeOut(function () {
+        $('#tag-form').fadeIn();
+      });
+    });
+  });
+</script>
+
+<section class='main-section'>
+  <div class='video'>
+    <div class='title-stats'>
+      <p class='video-title'><%= @video.name %></p>
+      <span class='video-score'><%= @video.score %> Total points</span>
+      <span class='video-upvotes'><%= @video.up_votes %> Upvotes</span>
+      <span class='video-downvotes'><%= @video.down_votes %> Downvotes</span>
 
       <% if current_user.can_edit? %>
         <% if @video.published? %>
-          <span class="video-unpublish">
-            <%= link_to "Unpublish Video",
+          <span class='video-unpublish'>
+            <%= link_to 'Unpublish Video',
               submission_path(@video),
               method: :patch
             %>
           </span>
         <% end %>
       <% end %>
-
-      <p class="video-tags">
-        <span class="video-tag">Tags: </span>
-        <a href="#">eggs</a>
-        <a href="#">food</a>
-        <a href="#">century egg</a>
-        <a href="#">Japan</a>
-      </p>
+      <% if current_user.can_tag?(@video) %>
+        <div id='tag-form'>
+          <%= form_for @video, url: video_tag_path(@video), remote: true do |form| %>
+            <%= form.text_field :tag_list %>
+            <%= form.submit 'Save' %>
+          <% end %>
+        </div>
+      <% end %>
+      <div id='tags-container'>
+        <p class='video-tags'>
+          <span class='video-tag'>Tags: </span>
+          <span id='tags'>
+            <%= render @video.tags %>
+          </span>
+          <% if current_user.can_tag?(@video) %>
+            <span class='video-tag'>
+              <%= link_to 'EDIT TAGS', 'javascript:void(0);',
+                id: 'edit-tags-button'
+              %>
+            </span>
+          <% end %>
+        </p>
+      </div>
     </div>
     <%= youtube_embed(@video) %>
   </div>
 
-  <div class="voting">
+  <div class='voting'>
     <% if current_user.logged_in? %>
       <%= link_to image_tag('chevron-up.png'),
         video_vote_path(@video, data: { vote_type: 'Upvote' }),
@@ -44,13 +69,13 @@
       %>
     <% end %>
     <%= link_to image_tag('random.png'), root_path, title: 'SHOW A RANDOM VIDEO', class: 'voting-button' %>
-    <div class="description">
+    <div class='description'>
       <p><%= @video.description %></p>
     </div>
   </div>
 </section>
 
-<section id="comments">
+<section id='comments'>
   <% if current_user.logged_in? %>
     <div id='comment-form'>
       <%= form_for :comment, url: [@video, :comment], remote: true do |form| %>

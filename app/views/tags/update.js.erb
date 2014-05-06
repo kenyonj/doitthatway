@@ -1,0 +1,9 @@
+var template = "";
+<% @tags.each do |tag| %>
+  template += "<%=j link_to tag.body, tag_path(tag.body) %>";
+<% end %>
+
+$('#tag-form').fadeOut(function () {
+  $('#tags').html(template);
+  $('#tags-container').fadeIn();
+});

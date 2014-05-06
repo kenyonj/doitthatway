@@ -52,13 +52,29 @@
       .video-tag {
         color: black;
       }
+
+      #tag-form {
+        display: none;
+      }
+
       .video-tags {
         padding-top: 5px;
         font-size: .7em;
+        #tags {
+          a {
+            background-color: rgba(black, .7);
+            padding: 3px;
+            border-radius: 3px;
+            font-weight: 300;
+            margin-right: 2px;
+            &:hover {
+              opacity: .7;
+            }
+          }
+        }
         a {
-          background-color: rgba(black, .7);
-          padding: 3px;
-          border-radius: 3px;
+          background-color: white;
+          font-weight: 800;
         }
         a:link, a:visited {
           color: #babf9c;

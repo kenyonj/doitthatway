@@ -3,6 +3,9 @@ class Video < ActiveRecord::Base
 
   has_many :comments
 
+  has_many :taggings
+  has_many :tags, through: :taggings
+
   has_many :votes
   has_many :upvotes, class_name: 'Upvote'
   has_many :downvotes, class_name: 'Downvote'
@@ -29,6 +32,14 @@ class Video < ActiveRecord::Base
 
   def unpublish
     update(published: false)
+  end
+
+  def tag_list
+    tags.pluck(:body).join(', ')
+  end
+
+  def tag_list=(tag_string)
+    self.tags = Tag.from_tag_list(tag_string)
   end
 
   def up_votes

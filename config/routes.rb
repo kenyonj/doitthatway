@@ -2,9 +2,12 @@ Doitthatway::Application.routes.draw do
   root 'videos#index'
 
   resources :videos, only: [:show, :create] do
+    resource :tag, only: [:update]
     resource :comment, only: [:create]
     post 'vote' => 'votes#create'
   end
+
+  resources :tags, only: [:show]
 
   resources :comments, only: [:destroy]
 

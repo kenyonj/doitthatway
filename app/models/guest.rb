@@ -7,11 +7,15 @@ class Guest
     false
   end
 
-  def owns?(comment)
+  def owns?(object)
     false
   end
 
   def can_edit?
+    false
+  end
+
+  def can_tag?(video)
     false
   end
 
