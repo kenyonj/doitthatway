@@ -9,4 +9,8 @@ class Tag < ActiveRecord::Base
       find_or_create_by(body: tag_name.strip.downcase)
     end
   end
+
+  def self.top_tags(num)
+    order(taggings_count: :desc).limit(num)
+  end
 end

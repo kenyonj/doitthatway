@@ -57,10 +57,8 @@
         </ul>
       <% end %>
       <ul>
-        <li>TRENDING TOPICS:</li>
-        <li><%= link_to 'Food', '#' %></li>
-        <li><%= link_to 'Life', '#' %></li>
-        <li><%= link_to 'Work', '#' %></li>
+        <li>TOP THREE TAGS: </li>
+        <%= render partial: 'tags/top_tags', collection: top_tags %>
       </ul>
     </div>
   </section>
