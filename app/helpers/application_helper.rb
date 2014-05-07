@@ -26,6 +26,11 @@ module ApplicationHelper
     embed_code.html_safe
   end
 
+  def youtube_thumbnail(video)
+    thumbnail_code = "http://img.youtube.com/vi/#{video.youtube_id}/0.jpg"
+    thumbnail_code.html_safe
+  end
+
   def class_for_upvote(video)
     if current_user.upvoted_this?(video)
       'voting-button upvote voted'

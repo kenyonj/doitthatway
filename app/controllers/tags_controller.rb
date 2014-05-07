@@ -9,7 +9,7 @@ class TagsController < ApplicationController
 
   def show
     tag = find_tag
-    @videos = tag.videos
+    @videos = tag.videos.published
   end
 
   private

@@ -1,24 +1,13 @@
-<div id='approve-<%= dom_id(video) %>'>
-  <p><%= video.name %></p>
-  <p><%= video.youtube_url %></p>
-  <% if current_user.moderator? %>
-    <p>
-      <%= button_to 'Approve',
-        unpublished_submission_path(video),
-        remote: true,
-        method: :patch
-      %>
-    </p>
-  <% end %>
-  <% if current_user.admin? %>
-    <p>
-      <%= button_to 'Delete',
-        submission_path(video),
-        remote: true,
-        method: :delete,
-        confirm: 'Are you sure you wish to delete this submission permanently?
-                  This can not be undone!'
-      %>
-    </p>
-  <% end %>
+<div class='video-listing'>
+  <div class='video-name'>
+    <%= link_to video.name, video %>
+  </div>
+
+  <div class='video-description'>
+    <%= video.description %>
+  </div>
+
+  <div class='video-thumbnail'>
+    <%= link_to image_tag(youtube_thumbnail(video), width: '100'), video %>
+  </div>
 </div>
