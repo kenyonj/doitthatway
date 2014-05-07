@@ -45,17 +45,7 @@ class User < ActiveRecord::Base
 
   def update_access(access_change)
     type = access_change[:type].to_sym
-    value = convert_to_boolean(access_change[:value])
+    value = access_change[:value]
     update(type => value)
-  end
-
-  private
-
-  def convert_to_boolean(string)
-    if string == 'true'
-      true
-    elsif string == 'false'
-      false
-    end
   end
 end
