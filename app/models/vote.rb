@@ -2,8 +2,13 @@ class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :video
 
-  validates :user_id, presence: true, uniqueness: { scope: :type }
+  validates :user_id, presence: true, uniqueness: { scope: :video_id }
 
-  scope :upvotes, -> { where(type: 'Upvote') }
-  scope :downvotes, -> { where(type: 'Downvote') }
+  def self.upvotes
+    where(type: 'Upvote')
+  end
+
+  def self.downvotes
+    where(type: 'Downvote')
+  end
 end
