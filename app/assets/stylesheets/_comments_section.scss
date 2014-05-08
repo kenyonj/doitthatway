@@ -3,8 +3,31 @@
   padding: 50px;
 
   #comment-form {
+    margin: auto;
+    text-align: center;
     padding-bottom: 15px;
+
+    input[type=text] {
+      @include appearance(none);
+      width: 80%;
+      display: inline;
+      background: #ffffff;
+      color: #666;
+      outline: none;
+      font-size: 1em;
+      height: 50px;
+    }
+
+    input[type=submit] {
+      @include appearance(none);
+      @include button(shiny);
+      @include position(relative, 0 115px 2px 0);
+      height: 48px;
+      outline: none;
+      font-weight: 800;
+    }
   }
+
   .comment {
     $comment-gutter: 1.4em;
     $comment-image-width: 4em;
@@ -62,5 +85,4 @@
       }
     }
   }
-
 }

@@ -2,6 +2,7 @@
   @include outer-container;
   padding-top: 25px;
   border-bottom: 1px solid gray;
+
   .video-name {
     @include span-columns(9);
     @include row(table);
@@ -14,10 +15,13 @@
     @include span-columns(7);
     padding: 20px 0px 10px 25px;
     float: left;
+
     .approval-buttons {
       padding-top: 10px;
+
       form, p {
         display: inline;
+
         div {
           display: inline;
         }
@@ -28,6 +32,7 @@
   .video-thumbnail {
     @include span-columns(2);
     float: left;
+
     img {
       width: 200px;
     }
