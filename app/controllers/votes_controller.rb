@@ -14,6 +14,10 @@ class VotesController < ApplicationController
     params[:data][:vote_type]
   end
 
+  def process_vote(type, target)
+    VoteProcessor.new(current_user, type, target).process
+  end
+
   def find_video
     Video.find(params[:video_id])
   end

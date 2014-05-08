@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def process_vote(type, target)
-    VoteProcessor.new(current_user, type, target).process
-  end
-
   def authorize_moderator
     if !current_user.moderator?
       render nothing: true, status: :unauthorized
