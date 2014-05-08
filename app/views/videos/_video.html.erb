@@ -3,11 +3,16 @@
     <%= link_to video.name, video %>
   </div>
 
+  <div class='video-thumbnail'>
+    <%= link_to image_tag(youtube_thumbnail(video)), video %>
+  </div>
+
   <div class='video-description'>
     <%= video.description %>
   </div>
 
-  <div class='video-thumbnail'>
-    <%= link_to image_tag(youtube_thumbnail(video), width: '100'), video %>
+  <div class='video-points'>
+    <p>Total Score</p>
+    <p><%= video.score %></p>
   </div>
 </div>

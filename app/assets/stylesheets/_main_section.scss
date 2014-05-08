@@ -55,6 +55,25 @@
 
       #tag-form {
         display: none;
+        padding-top: 10px;
+
+        input[type=text] {
+          @include appearance(none);
+          width: 60%;
+          display: inline;
+          background: #ffffff;
+          color: #666;
+          outline: none;
+          font-size: 1em;
+          height: 50px;
+        }
+
+        input[type=submit] {
+          @include appearance(none);
+          @include button(shiny);
+          outline: none;
+          font-weight: 800;
+        }
       }
 
       .video-tags {
@@ -111,12 +130,7 @@
     }
 
     .description {
-      @include border-top-radius(8px);
-      @include border-bottom-radius(8px);
-      @include border-left-radius(8px);
-      @include border-right-radius(8px);
       margin-left: 10px;
-      background-color: rgba(black, .05);
       padding: 5px;
       top-padding: 10px;
       font-size: 1.5em;

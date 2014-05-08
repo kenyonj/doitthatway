@@ -55,20 +55,20 @@
 
   <div class='voting'>
     <% if current_user.logged_in? %>
-      <%= link_to image_tag('chevron-up.png'),
+      <%= link_to image_tag('thumbs-up.png'),
         video_vote_path(@video, data: { vote_type: 'Upvote' }),
         title: 'UPVOTE THIS',
         class: class_for_upvote(@video),
         method: :post
       %>
-      <%= link_to image_tag('chevron-down.png'),
+      <%= link_to image_tag('thumbs-down.png'),
         video_vote_path(@video, data: { vote_type: 'Downvote' }),
         title: 'DOWNVOTE THIS',
         class: class_for_downvote(@video),
         method: :post
       %>
     <% end %>
-    <%= link_to image_tag('random.png'), root_path, title: 'SHOW A RANDOM VIDEO', class: 'voting-button' %>
+    <%= link_to image_tag('shuffle.png'), root_path, title: 'SHOW A RANDOM VIDEO', class: 'voting-button' %>
     <div class='description'>
       <p><%= @video.description %></p>
     </div>
