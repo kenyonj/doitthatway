@@ -1,6 +1,5 @@
-class SearchProcessor
+class ContentSearchProcessor
   attr_reader :query
-  attr_accessor :results
 
   def initialize(query)
     @query = query

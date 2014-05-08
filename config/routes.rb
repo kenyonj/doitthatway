@@ -19,7 +19,8 @@ Doitthatway::Application.routes.draw do
   resources :submissions, only: [:update, :destroy]
   resources :null_videos, only: [:index], path: 'no_videos'
 
-  resource :search, only: [:show]
+  resource :content_search, only: [:show]
+  resource :user_search, only: [:show]
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

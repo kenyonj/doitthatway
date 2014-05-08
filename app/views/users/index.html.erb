@@ -1,5 +1,15 @@
 <div id='user-list'>
-  <ul>
+  <div id='user-search'>
+    <%= form_for :search,
+      url: user_search_path,
+      method: :get,
+      remote: true do |form|
+    %>
+      <%= form.text_field :query, id: 'user-search-field', placeholder: "Enter all or part of a user's name" %>
+      <%= form.submit 'Search' %>
+    <% end %>
+  </div>
+  <ul id='user-results'>
     <%= render @users %>
   </ul>
 </div>

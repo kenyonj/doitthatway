@@ -17,7 +17,10 @@
 
       <div class="search-bar">
         <div class="search-and-submit">
-          <%= form_for :search, url: search_path, method: :get do |form| %>
+          <%= form_for :search,
+            url: content_search_path,
+            method: :get do |form|
+          %>
             <%= form.text_field :query, placeholder: 'Enter Search' %>
             <%= button_tag image_tag('search-icon-black.png') %>
           <% end %>

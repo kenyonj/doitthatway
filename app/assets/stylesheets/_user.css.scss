@@ -3,6 +3,32 @@
   @include clearfix;
   padding-top: 20px;
 
+  #user-search {
+    margin: auto;
+    text-align: center;
+    padding-bottom: 15px;
+
+    input[type=text] {
+      @include appearance(none);
+      width: 80%;
+      display: inline;
+      background: #ffffff;
+      color: #666;
+      outline: none;
+      font-size: 1em;
+      height: 50px;
+    }
+
+    input[type=submit] {
+      @include appearance(none);
+      @include button(shiny);
+      @include position(relative, 0 0 2px 0);
+      height: 48px;
+      outline: none;
+      font-weight: 800;
+    }
+  }
+
   li.block {
     @include span-columns(2);
     @include omega(6n);

@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
     VoteProcessor.new(current_user, type, target).process
   end
 
-  def process_search(query)
-    SearchProcessor.new(query)
-  end
-
   def authorize_moderator
     if !current_user.moderator?
       render nothing: true, status: :unauthorized
