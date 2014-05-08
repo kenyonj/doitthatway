@@ -8,6 +8,7 @@ class VideosController < ApplicationController
 
   def show
     @video = find_video
+    @comments = @video.comments.recent.paginated(params[:page])
   end
 
   def create

@@ -1,0 +1,8 @@
+var template = '<%=j render(@comments) %>';
+$('#comments-listing').append(template);
+
+<% if @comments.last_page? %>
+  $('#next_page').remove();
+<% else %>
+  $('#next_page').replaceWith('<%=j link_to_next_page @comments, 'Load more...', remote: true, id: 'next_page' %>');
+<% end %>

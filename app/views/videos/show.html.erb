@@ -85,6 +85,7 @@
     </div>
   <% end %>
   <div id='comments-listing'>
-    <%= render @video.comments %>
+    <%= render @comments %>
   </div>
+  <%= link_to_next_page @comments, 'Load more...', remote: true, id: 'next_page' %>
 </section>
