@@ -1,11 +1,13 @@
 Doitthatway::Application.routes.draw do
-  root 'videos#index'
+  root 'random_videos#show'
 
   resources :videos, only: [:show, :create] do
     resource :tag, only: [:update]
     resource :comment, only: [:create]
     post 'vote' => 'votes#create'
   end
+
+  resource :random_video, only: [:show]
 
   resources :tags, only: [:show]
 
@@ -19,7 +21,7 @@ Doitthatway::Application.routes.draw do
   resources :submissions, only: [:update, :destroy]
   resources :null_videos, only: [:index], path: 'no_videos'
 
-  resource :content_search, only: [:show]
+  resource :video_search, only: [:show]
   resource :user_search, only: [:show]
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

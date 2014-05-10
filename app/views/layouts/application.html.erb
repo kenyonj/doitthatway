@@ -18,7 +18,7 @@
       <div class="search-bar">
         <div class="search-and-submit">
           <%= form_for :search,
-            url: content_search_path,
+            url: video_search_path,
             method: :get do |form|
           %>
             <%= form.text_field :query, placeholder: 'Enter Search' %>

@@ -15,6 +15,7 @@ class VoteProcessor
   end
 
   private
+
   attr_reader :user, :type, :target
 
   def upvote?

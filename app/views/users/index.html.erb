@@ -5,7 +5,10 @@
       method: :get,
       remote: true do |form|
     %>
-      <%= form.text_field :query, id: 'user-search-field', placeholder: "Enter all or part of a user's name" %>
+      <%= form.text_field :query,
+        id: 'user-search-field',
+        placeholder: "Enter all or part of a user's name"
+      %>
       <%= form.submit 'Search' %>
     <% end %>
   </div>

@@ -6,7 +6,7 @@ class UserSearchesController < ApplicationController
   private
 
   def process_user_search
-    UserSearchProcessor.new(query)
+    UserSearcher.new(query)
   end
 
   def query

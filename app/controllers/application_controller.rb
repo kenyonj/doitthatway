@@ -35,4 +35,12 @@ class ApplicationController < ActionController::Base
       User.find_by(id: session[:user_id])
     end
   end
+
+  def set_last_viewed_video_id(id)
+    session[:last_viewed_video_id] = id
+  end
+
+  def last_viewed_video_id
+    session[:last_viewed_video_id]
+  end
 end

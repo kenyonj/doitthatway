@@ -1,6 +1,4 @@
-class UserSearchProcessor
-  attr_reader :query
-
+class UserSearcher
   def initialize(query)
     @query = query
   end
@@ -8,4 +6,8 @@ class UserSearchProcessor
   def users
     User.where("name ILIKE ?", "%#{query}%")
   end
+
+  private
+
+  attr_reader :query
 end

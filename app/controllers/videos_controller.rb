@@ -1,14 +1,10 @@
 class VideosController < ApplicationController
   respond_to :html
 
-  def index
-    video = random_video
-    redirect_to video
-  end
-
   def show
     @video = find_video
     @comments = @video.comments.recent.paginated(params[:page])
+    set_last_viewed_video_id(@video.id)
   end
 
   def create
@@ -20,10 +16,6 @@ class VideosController < ApplicationController
 
   def find_video
     Video.find(params[:id])
-  end
-
-  def random_video
-    Video.published.sample || NullVideo.new
   end
 
   def video_params

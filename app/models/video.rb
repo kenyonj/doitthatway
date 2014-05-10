@@ -22,6 +22,14 @@ class Video < ActiveRecord::Base
     exists?(published: false)
   end
 
+  def self.excluding(id)
+    where.not(id: id)
+  end
+
+  def self.random_video(last_viewed_video_id)
+    published.excluding(last_viewed_video_id).sample || NullVideo.new
+  end
+
   def youtube_id
     youtube_url.split('=')[1]
   end
