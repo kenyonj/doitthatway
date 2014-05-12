@@ -55,6 +55,9 @@ GEM
       multipart-post (>= 1.2, < 3)
     hashie (2.1.1)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     httpauth (0.2.1)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -76,6 +79,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     neat (1.5.1)
       bourbon (>= 3.1)
@@ -170,6 +174,7 @@ DEPENDENCIES
   bourbon
   coffee-rails (~> 4.0.0)
   dotenv-rails
+  httparty
   jbuilder (~> 1.2)
   jquery-rails
   kaminari

@@ -13,6 +13,7 @@ gem 'neat'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'kaminari'
+gem 'httparty'
 
 group :doc do
   gem 'sdoc', require: false

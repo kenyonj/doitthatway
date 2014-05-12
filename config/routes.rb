@@ -9,6 +9,8 @@ Doitthatway::Application.routes.draw do
 
   resource :random_video, only: [:show]
 
+  resource :youtube_parser, only: [:show]
+
   resources :tags, only: [:show]
 
   resources :comments, only: [:destroy]

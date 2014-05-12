@@ -9,10 +9,6 @@ module ApplicationHelper
     Video.unpublished_submissions?
   end
 
-  def new_video
-    Video.new
-  end
-
   def top_tags(num=3)
     Tag.top_tags(num)
   end
