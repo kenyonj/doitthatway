@@ -1,0 +1,41 @@
+$base-accent-color: #4FC1E9;
+
+#landing-page {
+  @include outer-container;
+
+  #heading {
+    font-size: 5em;
+    font-weight: 800;
+    float: left;
+    color: $base-accent-color;
+    font-family: 'Dosis', sans-serif;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top: 20px;
+    line-height: 40px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+
+    img {
+      position: relative;
+      bottom: -35px;
+      right: -5px;
+      width: 150px;
+      padding-right: 5px;
+      margin: auto;
+    }
+
+    p {
+      font-size: 20px;
+      font-family: 'Roboto', sans-serif;
+      line-height: 40px;
+      color: black;
+      padding-top: 30px;
+    }
+
+    a {
+      @include button;
+    }
+  }
+}

@@ -5,7 +5,7 @@ class SubmissionsController < ApplicationController
   def update
     video = find_video
     video.unpublish
-    redirect_to root_path
+    redirect_to random_video_path
   end
 
   def destroy

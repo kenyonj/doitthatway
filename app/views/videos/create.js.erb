@@ -1,5 +1,5 @@
 <% if @video.valid? %>
-  window.location.replace('<%= root_path %>');
+  window.location.replace('<%= random_video_path %>');
 <% else %>
   if ( $('#video_name').val() == "" ) {
     $('#video_name').addClass('form-error');

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Do It That Way</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= yield %>
+
+  <section id="footer">
+    <div id='about-bar'>
+      This tool was created by <%= link_to 'Justin Kenyon', 'http://justinkenyon.com' %>
+      using Ruby on Rails, jQuery, and SASS. The code is open source and
+      available on <%= link_to 'GitHub', 'http://github.com/kenyonj/doitthatway/' %>.
+    </div>
+  </section>
+
+</body>
+</html>

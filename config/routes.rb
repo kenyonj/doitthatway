@@ -1,5 +1,5 @@
 Doitthatway::Application.routes.draw do
-  root 'random_videos#show'
+  root 'homes#show'
 
   resources :videos, only: [:show, :create] do
     resource :tag, only: [:update]
