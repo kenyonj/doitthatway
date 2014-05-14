@@ -13,6 +13,10 @@ module ApplicationHelper
     Tag.top_tags(num)
   end
 
+  def new_video
+    @video = Video.new
+  end
+
   def youtube_embed(video)
     embed_code = "<iframe width='560' height='315'"\
                  "src='http://www.youtube.com/embed/#{video.youtube_id}"\

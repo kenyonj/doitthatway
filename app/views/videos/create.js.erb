@@ -1,0 +1,13 @@
+<% if @video.valid? %>
+  window.location.replace('<%= root_path %>');
+<% else %>
+  if ( $('#video_name').val() == "" ) {
+    $('#video_name').addClass('form-error');
+    $('#video_name').attr('placeholder', 'Video name is a required field');
+  }
+
+  if ( $('#video_description').val() == "" ) {
+    $('#video_description').addClass('form-error');
+    $('#video_description').attr('placeholder', 'Video description is a required field');
+  }
+<% end %>

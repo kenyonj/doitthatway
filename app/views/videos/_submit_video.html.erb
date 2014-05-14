@@ -11,7 +11,7 @@
         <% end %>
       </div>
       <div id='submit-video-form'>
-        <%= form_for Video.new do |form| %>
+        <%= form_for new_video, remote: true do |form| %>
           <%= form.text_field :name, placeholder: 'Video Name' %>
           <%= form.hidden_field :youtube_url, placeholder: 'Youtube URL' %>
           <%= form.text_area :description, placeholder: 'Video Description', size: '30x10' %>

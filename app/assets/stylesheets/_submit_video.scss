@@ -18,3 +18,7 @@ $base-accent-color: #4FC1E9;
     color: white;
   }
 }
+
+.form-error::-webkit-input-placeholder {
+    color: red
+}

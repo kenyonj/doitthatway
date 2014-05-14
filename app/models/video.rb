@@ -10,9 +10,9 @@ class Video < ActiveRecord::Base
   has_many :upvotes, class_name: 'Upvote'
   has_many :downvotes, class_name: 'Downvote'
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :description, presence: true
-  validates :youtube_url, presence: true, uniqueness: true
+  validates :youtube_url, presence: true
   validates :user, presence: true
 
   def self.published

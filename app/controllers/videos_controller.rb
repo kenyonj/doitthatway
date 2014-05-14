@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
 
   def show
     @video = find_video
@@ -8,8 +8,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    video = current_user.videos.create(video_params)
-    respond_with video, location: root_path
+    @video = current_user.videos.create(video_params)
   end
 
   private
