@@ -1,11 +1,17 @@
 class User < ActiveRecord::Base
-  has_many :videos
+  has_many :videos, dependent: :destroy
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
   delegate :upvotes, to: :votes
   delegate :downvotes, to: :votes
+
+  validates :provider, presence: true
+  validates :uid, presence: true, uniqueness: true
+  validates :name, presence: true
+  validates :oauth_token, presence: true
+  validates :oauth_expires_at, presence: true
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
