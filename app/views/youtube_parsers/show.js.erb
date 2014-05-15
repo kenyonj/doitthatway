@@ -3,8 +3,8 @@ if ( $('#youtube_video_url').val() == "" ) {
   $('#youtube_video_url').attr('placeholder', 'Youtube URL is a required field');
 } else {
   $('#youtube-url-form').fadeOut();
-  $('#video_name').val('<%=j @youtube_video.title %>');
-  $('#video_description').val('<%=j @youtube_video.description %>');
+  $('#video_name').val('<%=j @youtube_video.title.html_safe %>');
+  $('#video_description').val('<%=j @youtube_video.description.html_safe %>');
   $('#video_youtube_url').val('<%=j @youtube_video.url %>');
 
   $('#submit-video-form').fadeIn();
